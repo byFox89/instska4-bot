@@ -99,7 +99,7 @@ TOKEN = os.getenv("BOT_TOKEN")
 
     # Создаем объект Application с поддержкой сохранения данных пользователей
 persistence = PicklePersistence("bot_data")
-application = Application.builder().token(token).persistence(persistence).build()
+application = Application.builder().token(TOKEN).persistence(persistence).build()
 
     # Регистрируем обработчики команд
 application.add_handler(CommandHandler("start", start))
