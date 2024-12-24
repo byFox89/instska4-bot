@@ -98,18 +98,18 @@ TOKEN = os.getenv("BOT_TOKEN")
 
 
     # Создаем объект Application с поддержкой сохранения данных пользователей
-    persistence = PicklePersistence("bot_data")
-    application = Application.builder().token(token).persistence(persistence).build()
+persistence = PicklePersistence("bot_data")
+application = Application.builder().token(token).persistence(persistence).build()
 
     # Регистрируем обработчики команд
-    application.add_handler(CommandHandler("start", start))
-    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, download_video))
+application.add_handler(CommandHandler("start", start))
+application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, download_video))
 
     # Регистрируем обработчик кнопок
-    application.add_handler(CallbackQueryHandler(button))
+application.add_handler(CallbackQueryHandler(button))
 
     # Запускаем бота
-    application.run_polling()
+application.run_polling()
 
 if __name__ == '__main__':
     main()
